@@ -65,7 +65,7 @@ nav a:hover { color: var(--gold); }
 .hero-bg {
   position: absolute; top: 0; bottom: 0; right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
   width: 52%; max-width: 100%;
-  background: url("stage-1.jpg") 55% 18% / cover no-repeat;
+  background: url("studio.jpg") 50% 20% / cover no-repeat;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 50%); mask-image: linear-gradient(to right, transparent 0%, #000 50%);
   opacity: .45;
 }
@@ -77,6 +77,7 @@ nav a:hover { color: var(--gold); }
 .manifesto { font-size: clamp(48px, 7.4vw, 96px); line-height: .98; margin-top: 44px; letter-spacing: -0.01em; }
 .manifesto em { display: block; }
 .hero .lede { font-size: 18px; color: var(--muted); max-width: 56ch; margin: 32px 0 0; }
+.hero .target { margin: 18px 0 0; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); max-width: 60ch; line-height: 1.8; }
 .hero .lede strong { color: var(--ink); font-weight: 500; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 40px; align-items: center; }
 .cta { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--ink); text-decoration: none; display: inline-flex; gap: 10px; align-items: center; }
@@ -97,6 +98,43 @@ nav a:hover { color: var(--gold); }
 .thesis .src:hover { text-decoration: underline; }
 .interlude { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; padding-block: 8px 56px; }
 .interlude img { width: 100%; max-width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 22%; display: block; border: 1px solid var(--line); }
+
+/* Scope band */
+.scope { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2);
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.scope .wrap { padding-block: 44px; }
+.scope-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: 22px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.sc { padding: 20px 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); min-width: 0; }
+.sc b { display: block; font-family: var(--display); font-weight: 500; font-size: 36px; line-height: 1; color: var(--gold); font-variant-numeric: lining-nums tabular-nums; }
+.sc span { display: block; margin-top: 8px; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.domains { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+.domains span::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); margin-right: 10px; vertical-align: middle; }
+
+/* Case studies */
+.case { border-top: 1px solid var(--line); padding-block: 48px; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 56px; }
+.case:first-of-type { border-top: 0; padding-top: 0; }
+.case .when { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 14px; display: block; }
+.case h3 { font-size: clamp(30px, 3.4vw, 42px); }
+.cra { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.cra h4 { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin: 0 0 10px; font-family: var(--body); }
+.cra p { margin: 0; color: var(--muted); font-size: 15px; }
+.cra ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.cra li { font-family: var(--display); font-size: 21px; line-height: 1.25; color: var(--ink); }
+.cra li small { display: block; font-family: var(--body); font-size: 13px; color: var(--muted); }
+.ach { margin-top: 24px; border-top: 1px solid var(--line); }
+.ach-head { margin: 64px 0 8px; }
+.ach li { list-style: none; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.ach { padding: 0; }
+.ach .k { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 600; padding-top: 4px; }
+.ach p { margin: 0; color: var(--muted); max-width: 64ch; }
+.ach p strong { color: var(--ink); font-weight: 500; }
+.path div span:last-child small { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+@media (max-width: 860px) {
+  .scope-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case, .cra, .ach li { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .sc b { font-size: 30px; }
+}
 
 /* Questions */
 .qs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
@@ -128,7 +166,7 @@ nav a:hover { color: var(--gold); }
 .post p { color: var(--muted); margin: 6px 0 0; max-width: 62ch; }
 
 /* Conversations */
-.convos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.convos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .convo { border: 1px solid var(--line); background: var(--bg-2); padding: 28px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .convo .ctx { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .convo .ctx b { color: var(--gold); font-weight: 600; }
@@ -182,6 +220,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
     <nav aria-label="Main">
       <ul>
         <li><a href="#ideas">Ideas</a></li>
+        <li><a href="#results">Results</a></li>
         <li><a href="#questions">Questions</a></li>
         <li><a href="#writing">Writing</a></li>
         <li><a href="#origins">Background</a></li>
@@ -197,15 +236,35 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
     <div class="wrap">
       <div class="hero-inner">
         <div class="who">
-          <img class="mini-portrait" src="portrait-close.jpg" alt="Ali Boujtat" width="1400" height="1138">
+          <img class="mini-portrait" src="office.jpg" alt="Ali Boujtat" width="1400" height="1138">
           <div class="who-text"><b>Ali Boujtat</b><span>Customer experience leader · Brussels</span></div>
         </div>
         <h1 class="manifesto">For the client, the person who answers <em>is the company.</em></h1>
         <p class="lede">Customer excellence is not a department. It is a leadership decision, and the whole organisation either lives by it or doesn't. These are the convictions I have built over 27 years of leading customer service on five continents, and the ones I write about today.</p>
+        <p class="target">Open to Head of Customer Service, VP Customer Experience and Chief Customer Officer roles, in Belgium, Luxembourg and internationally. Permanent, interim or advisory.</p>
         <div class="actions">
           <a class="cta" href="#ideas">Read the ideas</a>
           <a class="cta ghost" href="https://www.linkedin.com/in/ali-boujtat-4a90586" target="_blank" rel="noopener">LinkedIn</a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scope" aria-label="Executive scope">
+    <div class="wrap">
+      <div class="label">Executive scope</div>
+      <div class="scope-grid">
+        <div class="sc"><b>27+</b><span>Years in customer service</span></div>
+        <div class="sc"><b>600+</b><span>People led, 3 management layers</span></div>
+        <div class="sc"><b>26</b><span>Locations on 5 continents</span></div>
+        <div class="sc"><b>$50M+</b><span>Annual P&amp;L managed</span></div>
+        <div class="sc"><b>800+</b><span>Products supported</span></div>
+        <div class="sc"><b>40+</b><span>Leaders mentored</span></div>
+        <div class="sc"><b>4</b><span>Working languages</span></div>
+        <div class="sc"><b>US</b><span>Patent co-inventor</span></div>
+      </div>
+      <div class="domains">
+        <span>Customer experience</span><span>Customer operations</span><span>Service transformation</span><span>Voice of the customer</span><span>AI and automation</span><span>COPC and ITIL</span>
       </div>
     </div>
   </div>
@@ -223,8 +282,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <div><div class="label theme">Listening</div><h3>Never confuse a quiet client <em>with a happy one.</em></h3></div>
         <div class="essay">
           <p>Most companies measure satisfaction through the small group of clients who answer surveys, and then make decisions as if that group spoke for everyone. It doesn't. The client who is quietly unhappy rarely tells you. They lower their usage, delay a renewal, or simply leave, and by the time it shows in the numbers the decision was made months ago.</p>
-          <p>The truth is already inside the company. It sits in every call, every email, every escalation, every case that was reopened. Leaders who learn to read that unsolicited signal see problems while they are still small.</p>
-          <p>And listening is only half the job. When clients see that nothing changes, they stop talking. The loop has to close: tell people what their feedback changed, and be honest about what it didn't.</p>
+          <p>The truth is already inside the company. It sits in every call, every email, every escalation, every case that was reopened. Leaders who learn to read that unsolicited signal see problems while they are still small. We did it years ago with speech and text analytics running on every interaction, reading tone, frustration and satisfaction. AI makes that far easier today.</p>
           <a class="src" href="https://www.linkedin.com/feed/update/urn:li:activity:7514257490004516864/" target="_blank" rel="noopener">Related post ↗</a>
         </div>
       </article>
@@ -234,31 +292,23 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <div class="essay">
           <p>Dashboards are useful, but they are a translation of reality, and something is always lost in translation. A manager who has spent a month answering clients reads the same dashboard very differently. They know what a long hold time feels like on the other end of the line, and what it costs the agent who has to absorb the frustration.</p>
           <p>That is why every leader in my organisations, me first, spent 30 days in client facing support. It was never a gesture. It changed the quality of decisions, made empathy concrete, and earned a kind of respect from teams that no title can buy.</p>
-          <p>If I could change one thing in how companies hire service leaders, it would be this: look for people who know the field, not only the dashboard.</p>
         </div>
       </article>
 
       <article class="thesis">
         <div><div class="label theme">Ownership</div><h3>Customer experience is <em>everyone's job, or nobody's.</em></h3></div>
         <div class="essay">
-          <p>Customer service is where a company's decisions come to be paid for. A pricing rule, a compliance check, a system limit, a handover between two teams: each one makes sense on its own, and the client lives the sum of all of them. The contact centre is simply the first place that sum shows up.</p>
-          <p>Blaming the front line for that is like blaming the thermometer for the fever. The real work is upstream, in the meeting points between teams that nobody owns.</p>
+          <p>Customer service is where a company's decisions come to be paid for. A pricing rule, a compliance check, a system limit, a handover between two teams: each one makes sense on its own, and the client lives the sum of all of them. The contact centre is simply the first place that sum shows up, and blaming the front line for it is like blaming the thermometer for the fever.</p>
           <p>So I set customer satisfaction as one objective for the whole company and work backwards from it, through processes, handovers and friction points, until engineering, systems and admin teams share the same focus as the people answering the phone. It takes years, not quarters. It is also the only approach I have seen work.</p>
           <a class="src" href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7516205645516132352/?commentUrn=urn%3Ali%3Acomment%3A%28ugcPost%3A7516205645516132352%2C7516428765976170496%29" target="_blank" rel="noopener">Related discussion ↗</a>
         </div>
       </article>
-
-      <div class="interlude">
-        <img src="stage-2.jpg" alt="Ali Boujtat speaking on stage" loading="lazy">
-        <img src="portrait-office.jpg" alt="Ali Boujtat" loading="lazy">
-      </div>
 
       <article class="thesis">
         <div><div class="label theme">Trust</div><h3>A promise you keep <em>beats speed.</em></h3></div>
         <div class="essay">
           <p>We obsess over response times, and we often forget what clients actually need: certainty. A client can accept two days if they know it is two days and they know who is handling it. What destroys trust is uncertainty, the shared mailbox, the case passed from team to team, the silence.</p>
           <p>Ownership is not a personality trait you hope to hire. It is something you design. When every case has a name attached from the first contact, people take ownership naturally. When the process hides who is responsible, even the best people end up passing cases along.</p>
-          <p>Make a clear promise, give it an owner, and keep it. The discipline it forces on your organisation is worth more than any speed target.</p>
           <a class="src" href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7508787491181830144/?commentUrn=urn%3Ali%3Acomment%3A%28ugcPost%3A7508787491181830144%2C7516429173817524224%29" target="_blank" rel="noopener">Related discussion ↗</a>
         </div>
       </article>
@@ -266,9 +316,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
       <article class="thesis">
         <div><div class="label theme">Quality</div><h3>The old quality lessons <em>still win.</em></h3></div>
         <div class="essay">
-          <p>Customer experience has become a world of journeys, personas and new tools. All useful. But the discipline that actually moves results is older: Total Quality Management. One indicator that everyone is judged on. Problems fixed at their root, not patched at the front. A front line with the authority to act.</p>
-          <p>A standard also has to be lived, not filed. It holds when the people delivering it train together, compare notes and are measured the same way, whatever country or team they sit in. A client should never be able to tell which office is helping them.</p>
-          <p>And in B2B, remember that clients have emotions too. They just show up at contract renewal.</p>
+          <p>Customer experience has become a world of journeys, personas and new tools. All useful. But the discipline that actually moves results is older: Total Quality Management. One indicator that everyone is judged on. Problems fixed at their root, not patched at the front. A front line with the authority to act. And in B2B, remember that clients have emotions too. They just show up at contract renewal.</p>
           <a class="src" href="https://www.linkedin.com/pulse/tqm-isnt-old-fashioned-its-what-customer-experience-forgot-boujtat-7tgec/" target="_blank" rel="noopener">Read the article ↗</a>
         </div>
       </article>
@@ -278,7 +326,6 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <div class="essay">
           <p>AI and automation are the biggest opportunity customer service has had in a generation, and also the easiest way to damage trust at scale. The difference is the intention behind them. When service is treated as a cost to cut, the bot becomes a wall between the client and the company. When it is treated as an investment, the bot takes the routine and frees people for the moments that really matter.</p>
           <p>Those moments are few, and they decide everything: a blocked card abroad, a payment that fails at the till, a fraud alert on a Sunday. Nobody remembers the hundred smooth transactions. Everybody remembers who helped them when it went wrong, and how.</p>
-          <p>Use technology to make those moments rarer and to prepare the person who handles them. Never use it to make that person unreachable.</p>
           <a class="src" href="https://www.linkedin.com/feed/update/urn:li:activity:7513313678008545280/" target="_blank" rel="noopener">Related post ↗</a>
         </div>
       </article>
@@ -288,9 +335,56 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <div class="essay">
           <p>Most companies still manage customer service as a cost to be contained. Every year the question is how to do the same with less. The better question is what the company loses every time a client struggles to get help: the renewal, the referral, the next product they would have bought.</p>
           <p>Well run and properly funded, customer service becomes one of the few places where a company can truly differentiate. Products can be copied, prices can be matched. The way a client is treated in a difficult moment cannot.</p>
-          <p>I have spent my career proving this through results rather than slides. It remains the conviction I would bring to any leadership table.</p>
         </div>
       </article>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="wrap">
+      <div class="head">
+        <div class="label">In practice</div>
+        <h2 class="big" style="margin-top:20px">What these ideas <em>delivered</em></h2>
+        <div class="rule"></div>
+        <p>Three situations where the convictions above met a real problem, and what came out of it.</p>
+      </div>
+
+      <article class="case">
+        <div><h3>Rebuilding European support <em>from zero</em></h3><span class="when">Europe · 2008 to 2014</span></div>
+        <div class="cra">
+          <div><h4>Challenge</h4><p>A restructuring ended the entire European B2B support team. Clients still needed answers, and there was no team left to give them.</p></div>
+          <div><h4>Actions</h4><p>Rebuilt the function from scratch and grew it to more than 70 service managers and escalation specialists. Went after root causes rather than symptoms, and kept leaders close to the front line.</p></div>
+          <div><h4>Results</h4><ul><li>NPS 42 → 68</li><li>Satisfaction 3.0 → 4.5<small>out of 5</small></li></ul></div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div><h3>Putting priority discipline <em>into service</em></h3><span class="when">Europe, Middle East and Africa · 2014 to 2016</span></div>
+        <div class="cra">
+          <div><h4>Challenge</h4><p>Issues were handled in arrival order, whatever their impact on the client. The culture said "we are a back office, not a service to customers", and the Middle East and Africa had no dedicated support model at all.</p></div>
+          <div><h4>Actions</h4><p>Designed the first dedicated support model for the Middle East and Africa. Brought an ITIL priority logic into customer service: impact and urgency set the service level, and client facing teams could override it when the business required. Won the cultural argument by example.</p></div>
+          <div><h4>Results</h4><ul><li>Priority 2 resolution 27 days → 8h</li><li>First contact resolution 65% → 85%</li><li>Satisfaction 60% → 89%</li><li>NPS +21 points, complaints −32%</li></ul></div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div><h3>Growing global without <em>growing proportionally</em></h3><span class="when">Global · 2018 to 2024</span></div>
+        <div class="cra">
+          <div><h4>Challenge</h4><p>Volumes grew by double digits every year. Hiring at the same pace was neither sustainable nor the right answer for clients.</p></div>
+          <div><h4>Actions</h4><p>Brought all five regions into one global B2B function. Used process improvement, client self service, automation and offshore partners trained to onshore quality, while keeping teams in the regions, close to commercial leaders and in clients' own languages.</p></div>
+          <div><h4>Results</h4><ul><li>Satisfaction 72% → 92%</li><li>NPS +15 points</li><li>42% of routine inquiries automated</li><li>Handling time −32%, throughput +45%<small>with no drop in service</small></li></ul></div>
+        </div>
+      </article>
+
+      <h3 class="sub ach-head">Selected achievements</h3>
+      <ul class="ach">
+        <li><span class="k">Turnaround</span><p>Took <strong>Academy Europe</strong> from loss making to a profitable business line, with a <strong>400% rise</strong> in annual profitability. The model was adopted by every region.</p></li>
+        <li><span class="k">Regulatory</span><p>Represented the company with the <strong>Russian regulator and NSPK</strong> after the 2014 sanctions, keeping service running under new local regulation.</p></li>
+        <li><span class="k">Ecosystems</span><p>Coordinated the <strong>country by country launch</strong> of a major technology manufacturer's mobile payment system across the Middle East and Africa.</p></li>
+        <li><span class="k">Acceptance</span><p>Created a dedicated <strong>acceptance technical optimisation team</strong> to solve card acceptance problems with markets and partners.</p></li>
+        <li><span class="k">Standards</span><p>Standardised <strong>95% of service protocols</strong> globally and led the internal <strong>COPC and ITIL</strong> certification programmes.</p></li>
+        <li><span class="k">Innovation</span><p>Co-inventor of <strong>US patent US10565630B2</strong> (granted 2020) on identifying the root causes of declined payment transactions.</p></li>
+      </ul>
     </div>
   </section>
 
@@ -347,7 +441,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 
   <section id="origins">
     <div class="wrap origins">
-      <div><img src="portrait-library.jpg" alt="Portrait of Ali Boujtat" loading="lazy"></div>
+      <div><img src="portrait-office.jpg" alt="Portrait of Ali Boujtat" loading="lazy"></div>
       <div>
         <div class="label">Where these ideas come from</div>
         <h2 class="big" style="margin-top:20px">Twenty-seven years <em>on the front line.</em></h2>
@@ -358,7 +452,10 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         </div>
         <div class="path">
           <div><span class="when">2024 – 2026</span><span>Entrepreneur and consultant · Agmenta Consulting, Hive Network Real Estate</span></div>
-          <div><span class="when">2006 – 2024</span><span>Mastercard · from Supervisor to SVP Global Customer Service</span></div>
+          <div><span class="when">2018 – 2024</span><span>Senior Vice President, Global Customer Service · Mastercard<small>600+ people, 26 locations, 5 regions, 800+ products, P&amp;L above $50M a year</small></span></div>
+          <div><span class="when">2016 – 2018</span><span>Senior Vice President, Middle East and Africa · Mastercard, Dubai<small>Established the region and led a mobile payment ecosystem launch</small></span></div>
+          <div><span class="when">2014 – 2016</span><span>Vice President, Regional Operations, EMEA · Mastercard<small>First dedicated support model for the Middle East and Africa</small></span></div>
+          <div><span class="when">2006 – 2014</span><span>Supervisor to Director, Europe · Mastercard<small>B2B Customer Support, Academy Europe, Regional Operations and Technology Support</small></span></div>
           <div><span class="when">Before 2006</span><span>Proximus · BASE · Orange (Mobistar)</span></div>
           <div><span class="when">Languages</span><span>French · English · Dutch · Arabic</span></div>
         </div>
@@ -399,16 +496,7 @@ const ARTICLES = [
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7513313678008545280/", tags: ["AI and automation", "Customer experience"] },
   { type: "Post", title: "Agentic AI: breaking the growth constraint in operations", date: "2026-02-10",
     summary: "For years, growing the business meant growing the headcount. Agentic AI is changing that equation, while people remain essential for empathy, judgment and leadership.",
-    url: "https://www.linkedin.com/feed/update/urn:li:activity:7426984540524408832/", tags: ["AI and automation"] },
-  { type: "Post", title: "From frustration to instinct: a quiet lesson in leadership", date: "2025-07-17",
-    summary: "How years of security drills became a reflex, and why cybersecurity is a leadership duty, not only a technical one.",
-    url: "https://www.linkedin.com/feed/update/urn:li:activity:7351403603154108416/", tags: ["Leadership"] },
-  { type: "Post", title: "You can use me to succeed, but I won't let you make me fail", date: "2025-05-18",
-    summary: "A sentence from a leader I respect that became a leadership philosophy: support people fully, and know where that support ends.",
-    url: "https://www.linkedin.com/feed/update/urn:li:activity:7329990686525599744/", tags: ["Leadership", "Mentoring"] },
-  { type: "Post", title: "My advice to new graduates", date: "2025-05-06",
-    summary: "Don't chase titles or big names early on. Learn, get your hands dirty, stay curious and humble, and the rest will follow.",
-    url: "https://www.linkedin.com/feed/update/urn:li:activity:7325446063392210944/", tags: ["Mentoring"] }
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:7426984540524408832/", tags: ["AI and automation"] }
 ];
 
 /* ===== CONVERSATIONS (comments on other people's posts) ===== */
@@ -417,8 +505,6 @@ const CONVERSATIONS = [
     text: "Telling clients what their feedback changed, and what it did not, is the step most companies skip. Feedback builds trust only when the loop closes back to the person who gave it." },
   { author: "ARC Europe", topic: "one service standard across Europe", kind: "activity", post: "7513931715627872258", comment: "7516520170387922945", lang: "en",
     text: "A shared standard only holds when the people delivering it train together and compare notes, not when it lives in a manual. A driver stranded abroad should never be able to tell which country's team is helping them." },
-  { author: "Luc Leclere", topic: "technology and trust in banking", kind: "activity", post: "7516064923584647168", comment: "7516516077388939264", lang: "en",
-    text: "Trust in banking is decided in a few moments that rarely make the strategy deck: a blocked card abroad, a payment that fails at the till, a fraud alert on a Sunday." },
   { author: "Louis de Looz-Corswarem", topic: "trust in transformation", kind: "ugcPost", post: "7516496973936648194", comment: "7516515796647301121", lang: "fr",
     text: "Préserver ce qui ne doit pas changer est la partie la plus difficile d'une transformation, parce que personne ne l'inscrit dans un plan de projet. La technologie peut préparer ce moment et en garder le contexte, mais la confiance se construit dans les minutes qui suivent." }
 ];
@@ -458,7 +544,7 @@ const CONVERSATIONS = [
     });
   }
   const tags = ["All", ...new Set(items.flatMap(a => a.tags || []))];
-  if (tags.length > 2) {
+  if (items.length > 5 && tags.length > 2) {
     tags.forEach(tag => {
       const b = document.createElement("button");
       b.className = "fchip"; b.type = "button"; b.textContent = tag;
