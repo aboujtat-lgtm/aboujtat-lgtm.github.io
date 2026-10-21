@@ -5,9 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ali Boujtat</title>
 <meta name="description" content="Ali Boujtat on customer excellence: why the person who answers is the company, why quiet clients are not happy clients, and how leaders make the whole organisation own the customer.">
+<link rel="alternate" hreflang="en" href="https://aboujtat-lgtm.github.io/"><link rel="alternate" hreflang="fr" href="https://aboujtat-lgtm.github.io/fr.html"><link rel="alternate" hreflang="nl" href="https://aboujtat-lgtm.github.io/nl.html"><link rel="alternate" hreflang="x-default" href="https://aboujtat-lgtm.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<script>
+try {
+  if (!new URLSearchParams(location.search).has("stay")) {
+    var l = localStorage.getItem("lang");
+    if (!l) { var n = (navigator.languages || [navigator.language || ""]).map(function (x) { return String(x).slice(0, 2).toLowerCase(); });
+      l = n.filter(function (x) { return x === "en" || x === "fr" || x === "nl"; })[0]; }
+    if (l === "fr" || l === "nl") location.replace(l + ".html" + location.hash);
+  }
+} catch (e) {}
+</script>
 <style>
 /* Layout: a point of view, not a CV. Manifesto hero, then theses set as large serif statements with short essays, then writing, then the experience behind it. Single dark theme with gold accents. */
 :root {
@@ -54,6 +65,11 @@ header {
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
 header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 16px; }
+header nav { margin-left: auto; }
+.langs { display: flex; gap: 2px; flex: none; }
+.langs a { font-size: 11px; letter-spacing: .14em; font-weight: 600; color: var(--muted); text-decoration: none; padding: 5px 7px; border: 1px solid transparent; }
+.langs a:hover { color: var(--gold); }
+.langs a[aria-current="page"] { color: var(--gold); border-color: var(--line); }
 .wordmark { font-family: var(--display); font-size: 20px; color: var(--ink); text-decoration: none; }
 .wordmark span { color: var(--muted); font-style: italic; }
 nav ul { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; }
@@ -210,10 +226,12 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   .hero-inner > *:nth-child(4) { animation-delay: .3s; }
   @keyframes rise { from { transform: translateY(10px); } to { transform: none; } }
 }
+.langs { margin-left: 22px; }
+@media (max-width: 860px) { .langs { margin-left: auto; } }
+@media (max-width: 480px) { .wordmark span { display: none; } }
 </style>
 </head>
 <body>
-
 <header>
   <div class="wrap">
     <a class="wordmark" href="#top">Ali Boujtat <span>· on customer excellence</span></a>
@@ -227,6 +245,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <div class="langs" role="navigation" aria-label="Language"><a href="index.html" hreflang="en" lang="en" data-lang="en" title="English" aria-current="page">EN</a><a href="fr.html" hreflang="fr" lang="fr" data-lang="fr" title="Français">FR</a><a href="nl.html" hreflang="nl" lang="nl" data-lang="nl" title="Nederlands">NL</a></div>
   </div>
 </header>
 
@@ -496,29 +515,63 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 </footer>
 
 <script>
+/* Shared script. The page sets document.documentElement.lang to en, fr or nl. */
+const LANG = (document.documentElement.lang || "en").slice(0, 2);
+const T = {
+  en: { locale: "en-GB", all: "All", on: "On", about: "about", read: "Read the discussion ↗", copy: "Copy", copied: "Copied" },
+  fr: { locale: "fr-BE", all: "Tous", on: "Sous un post de", about: "sur", read: "Lire la discussion ↗", copy: "Copier", copied: "Copié" },
+  nl: { locale: "nl-BE", all: "Alle", on: "Onder een post van", about: "over", read: "Lees de discussie ↗", copy: "Kopiëren", copied: "Gekopieerd" }
+}[LANG] || {};
+const tr = v => (v && typeof v === "object") ? (v[LANG] || v.en) : v;
+
 /* ===== POSTS =====
-   To add a post, copy one block and fill it in. Newest appear first. */
+   To add a post, copy one block and fill in each language. Newest appear first.
+   The linked LinkedIn posts themselves stay in the language they were written in. */
 const ARTICLES = [
-  { type: "Post", title: "Thank you to the people on the front line", date: "2026-10-09",
-    summary: "What front line teams taught me about leadership. Listen before you decide, go and see for yourself, never confuse a quiet client with a happy one.",
-    url: "https://www.linkedin.com/feed/update/urn:li:activity:7514257490004516864/", tags: ["Leadership", "Customer experience"] },
-  { type: "Post", title: "Should talking to a human be a customer right?", date: "2026-10-06",
-    summary: "On the push for a guaranteed human contact in banking, energy and telecoms. Automation works when it sits next to people, not in place of them.",
-    url: "https://www.linkedin.com/feed/update/urn:li:activity:7513313678008545280/", tags: ["AI and automation", "Customer experience"] },
-  { type: "Post", title: "Agentic AI: breaking the growth constraint in operations", date: "2026-02-10",
-    summary: "For years, growing the business meant growing the headcount. Agentic AI is changing that equation, while people remain essential for empathy, judgment and leadership.",
-    url: "https://www.linkedin.com/feed/update/urn:li:activity:7426984540524408832/", tags: ["AI and automation"] }
+  { date: "2026-10-09", url: "https://www.linkedin.com/feed/update/urn:li:activity:7514257490004516864/",
+    title: { en: "Thank you to the people on the front line",
+             fr: "Merci aux personnes en première ligne",
+             nl: "Dank aan de mensen in de frontlinie" },
+    summary: { en: "What front line teams taught me about leadership. Listen before you decide, go and see for yourself, never confuse a quiet client with a happy one.",
+               fr: "Ce que les équipes de première ligne m'ont appris sur le leadership. Écouter avant de décider, aller voir par soi-même, ne jamais confondre un client silencieux avec un client satisfait.",
+               nl: "Wat frontlinieteams me leerden over leiderschap. Luister voor je beslist, ga zelf kijken, en verwar een stille klant nooit met een tevreden klant." },
+    tags: ["Leadership", "Customer experience"] },
+  { date: "2026-10-06", url: "https://www.linkedin.com/feed/update/urn:li:activity:7513313678008545280/",
+    title: { en: "Should talking to a human be a customer right?",
+             fr: "Parler à un humain doit-il devenir un droit du client ?",
+             nl: "Moet praten met een mens een klantrecht worden?" },
+    summary: { en: "On the push for a guaranteed human contact in banking, energy and telecoms. Automation works when it sits next to people, not in place of them.",
+               fr: "Sur la volonté de garantir un contact humain dans la banque, l'énergie et les télécoms. L'automatisation fonctionne quand elle est aux côtés des personnes, pas à leur place.",
+               nl: "Over de roep om gegarandeerd menselijk contact in banken, energie en telecom. Automatisering werkt wanneer ze naast mensen staat, niet in hun plaats." },
+    tags: ["AI and automation", "Customer experience"] },
+  { date: "2026-02-10", url: "https://www.linkedin.com/feed/update/urn:li:activity:7426984540524408832/",
+    title: { en: "Agentic AI: breaking the growth constraint in operations",
+             fr: "IA agentique : lever la contrainte de croissance dans les opérations",
+             nl: "Agentic AI: de groeibeperking in operations doorbreken" },
+    summary: { en: "For years, growing the business meant growing the headcount. Agentic AI is changing that equation, while people remain essential for empathy, judgment and leadership.",
+               fr: "Pendant des années, faire grandir l'activité voulait dire faire grandir les effectifs. L'IA agentique change cette équation, tandis que les personnes restent essentielles pour l'empathie, le jugement et le leadership.",
+               nl: "Jarenlang betekende groei van het bedrijf ook groei van het personeelsbestand. Agentic AI verandert die vergelijking, terwijl mensen onmisbaar blijven voor empathie, oordeel en leiderschap." },
+    tags: ["AI and automation"] }
 ];
 
-/* ===== CONVERSATIONS (comments on other people's posts) ===== */
+/* ===== CONVERSATIONS (comments on other people's posts) =====
+   Quotes stay in the language they were written in. */
 const CONVERSATIONS = [
-  { author: "Shep Hyken", topic: "customer feedback and judgment", kind: "ugcPost", post: "7515800174749892609", comment: "7516428986902659073", lang: "en",
+  { author: "Shep Hyken", kind: "ugcPost", post: "7515800174749892609", comment: "7516428986902659073", lang: "en",
+    topic: { en: "customer feedback and judgment", fr: "le feedback client et le jugement", nl: "klantenfeedback en oordeelsvermogen" },
     text: "Telling clients what their feedback changed, and what it did not, is the step most companies skip. Feedback builds trust only when the loop closes back to the person who gave it." },
-  { author: "ARC Europe", topic: "one service standard across Europe", kind: "activity", post: "7513931715627872258", comment: "7516520170387922945", lang: "en",
+  { author: "ARC Europe", kind: "activity", post: "7513931715627872258", comment: "7516520170387922945", lang: "en",
+    topic: { en: "one service standard across Europe", fr: "un même standard de service en Europe", nl: "één servicestandaard in heel Europa" },
     text: "A shared standard only holds when the people delivering it train together and compare notes, not when it lives in a manual. A driver stranded abroad should never be able to tell which country's team is helping them." },
-  { author: "Louis de Looz-Corswarem", topic: "trust in transformation", kind: "ugcPost", post: "7516496973936648194", comment: "7516515796647301121", lang: "fr",
+  { author: "Louis de Looz-Corswarem", kind: "ugcPost", post: "7516496973936648194", comment: "7516515796647301121", lang: "fr",
+    topic: { en: "trust in transformation", fr: "la confiance dans la transformation", nl: "vertrouwen bij transformatie" },
     text: "Préserver ce qui ne doit pas changer est la partie la plus difficile d'une transformation, parce que personne ne l'inscrit dans un plan de projet. La technologie peut préparer ce moment et en garder le contexte, mais la confiance se construit dans les minutes qui suivent." }
 ];
+
+/* Remember the language the visitor picks */
+document.querySelectorAll(".langs a[data-lang]").forEach(a => a.addEventListener("click", () => {
+  try { localStorage.setItem("lang", a.dataset.lang); } catch (e) {}
+}));
 
 (function () {
   const box = document.getElementById("convos");
@@ -527,11 +580,12 @@ const CONVERSATIONS = [
     const href = "https://www.linkedin.com/feed/update/" + urn + "/?commentUrn=" + encodeURIComponent("urn:li:comment:(" + c.kind + ":" + c.post + "," + c.comment + ")");
     const el = document.createElement("div");
     el.className = "convo";
-    el.innerHTML = '<div class="ctx">On <b></b>, about <span></span></div><blockquote></blockquote><a target="_blank" rel="noopener">Read the discussion ↗</a>';
-    el.querySelector(".ctx b").textContent = c.author;
-    el.querySelector(".ctx span").textContent = c.topic;
+    el.innerHTML = '<div class="ctx"></div><blockquote></blockquote><a target="_blank" rel="noopener"></a>';
+    const b = document.createElement("b"); b.textContent = c.author;
+    const sp = document.createElement("span"); sp.textContent = tr(c.topic);
+    el.querySelector(".ctx").append(T.on + " ", b, ", " + T.about + " ", sp);
     const q = el.querySelector("blockquote"); q.textContent = c.text; q.lang = c.lang;
-    el.querySelector("a").href = href;
+    const a = el.querySelector("a"); a.href = href; a.textContent = T.read;
     box.appendChild(el);
   });
 })();
@@ -539,7 +593,7 @@ const CONVERSATIONS = [
 (function () {
   const list = document.getElementById("posts");
   const filters = document.getElementById("filters");
-  const fmt = d => new Date(d + "T12:00:00").toLocaleDateString("en-GB", { month: "short", year: "numeric" });
+  const fmt = d => new Date(d + "T12:00:00").toLocaleDateString(T.locale, { month: "short", year: "numeric" });
   const items = ARTICLES.slice().sort((a, b) => b.date.localeCompare(a.date));
   let active = "All";
   function render() {
@@ -549,8 +603,8 @@ const CONVERSATIONS = [
       el.className = "post";
       el.innerHTML = '<div class="when"></div><div><h4><a target="_blank" rel="noopener"></a></h4><p></p></div>';
       el.querySelector(".when").textContent = fmt(a.date);
-      const link = el.querySelector("h4 a"); link.textContent = a.title; link.href = a.url;
-      el.querySelector("p").textContent = a.summary || "";
+      const link = el.querySelector("h4 a"); link.textContent = tr(a.title); link.href = a.url; link.hreflang = "en";
+      el.querySelector("p").textContent = tr(a.summary) || "";
       list.appendChild(el);
     });
   }
@@ -558,23 +612,23 @@ const CONVERSATIONS = [
   if (items.length > 5 && tags.length > 2) {
     tags.forEach(tag => {
       const b = document.createElement("button");
-      b.className = "fchip"; b.type = "button"; b.textContent = tag;
+      b.className = "fchip"; b.type = "button"; b.dataset.tag = tag; b.textContent = tag === "All" ? T.all : tag;
       b.setAttribute("aria-pressed", tag === active);
-      b.onclick = () => { active = tag; filters.querySelectorAll(".fchip").forEach(c => c.setAttribute("aria-pressed", c.textContent === active)); render(); };
+      b.onclick = () => { active = tag; filters.querySelectorAll(".fchip").forEach(c => c.setAttribute("aria-pressed", c.dataset.tag === active)); render(); };
       filters.appendChild(b);
     });
   } else { filters.hidden = true; }
   render();
   document.getElementById("year").textContent = new Date().getFullYear();
   const btn = document.getElementById("copy-email");
+  btn.textContent = T.copy;
   btn.addEventListener("click", () => {
     const el = document.getElementById("email");
-    const done = () => { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy", 1600); };
+    const done = () => { btn.textContent = T.copied; setTimeout(() => btn.textContent = T.copy, 1600); };
     const selectIt = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
     if (navigator.clipboard) navigator.clipboard.writeText(el.textContent).then(done).catch(selectIt); else selectIt();
   });
 })();
 </script>
-
 </body>
 </html>
